@@ -12,7 +12,8 @@ export function applyExperienceEvent(
         return {
           ...card,
           message:
-            '✓ Welcome back, Alex Morgan\nReturning guest\nVegetarian\nOutdoor activities',
+            'Welcome back, Alex Morgan\nReturning guest\nVegetarian\nOutdoor activities',
+          highlight: 'Guest profile loaded',
           prompt: undefined,
         };
       }
@@ -22,6 +23,7 @@ export function applyExperienceEvent(
           ...card,
           message:
             'Discover the best restaurants at Aurora Resort.',
+          highlight: undefined,
           prompt: 'Book dinner for Saturday night.',
         };
       }
@@ -36,7 +38,8 @@ export function applyExperienceEvent(
         return {
           ...card,
           message:
-            'Ocean Terrace\nSaturday · 7:30 PM\nReservation confirmed',
+            'Ocean Terrace\nSaturday · 7:30 PM',
+          highlight: 'Reservation confirmed',
           prompt: undefined,
         };
       }
@@ -46,6 +49,7 @@ export function applyExperienceEvent(
           ...card,
           message:
             "Let's find something memorable for your weekend.",
+          highlight: undefined,
           prompt:
             'Find an activity for Saturday afternoon.',
         };
@@ -61,7 +65,8 @@ export function applyExperienceEvent(
         return {
           ...card,
           message:
-            'Sunset Kayaking\nSaturday · 4:00 PM\nPreparing your reservation...',
+            'Sunset Kayaking\nSaturday · 4:00 PM',
+          highlight: 'Preparing your reservation...',
           prompt: undefined,
         };
       }
@@ -76,7 +81,8 @@ export function applyExperienceEvent(
         return {
           ...card,
           message:
-            'Sunset Kayaking\nWaiver sent to your phone\nPlease review it and tell me when you are ready.',
+            'Sunset Kayaking\nPlease review the waiver on your phone and tell me when you are ready.',
+          highlight: 'Waiver sent to your phone',
           prompt: undefined,
         };
       }
@@ -91,7 +97,9 @@ export function applyExperienceEvent(
         return {
           ...card,
           message:
-            'Sunset Kayaking\nSaturday · 4:00 PM\n✓ Waiver accepted\nReservation confirmed',
+            'Sunset Kayaking\nSaturday · 4:00 PM',
+          highlight:
+            'Waiver accepted\nReservation confirmed',
           prompt: undefined,
         };
       }
@@ -106,7 +114,9 @@ export function applyExperienceEvent(
         return {
           ...card,
           message:
-            'Sunset Kayaking\nSaturday · 4:00 PM\n✓ Reservation confirmed\nQR activity check-in pass generated',
+            'Sunset Kayaking\nSaturday · 4:00 PM',
+          highlight:
+            'Reservation confirmed\nQR activity check-in pass generated',
           prompt: undefined,
         };
       }
@@ -121,7 +131,8 @@ export function applyExperienceEvent(
         return {
           ...card,
           message:
-            'Your activity is ready. Let’s arrange your transportation.',
+            "Your activity is ready. Let's arrange your transportation.",
+          highlight: undefined,
           prompt: 'Arrange transportation to my activity.',
         };
       }
@@ -136,7 +147,8 @@ export function applyExperienceEvent(
         return {
           ...card,
           message:
-            'Electric Shuttle\nLobby pickup · 3:30 PM\nTransportation confirmed',
+            'Electric Shuttle\nLobby pickup · 3:30 PM',
+          highlight: 'Transportation confirmed',
           prompt: undefined,
         };
       }
@@ -151,7 +163,9 @@ export function applyExperienceEvent(
         return {
           ...card,
           message:
-            'Electric Shuttle\nLobby pickup · 3:30 PM\n✓ Weekend itinerary sent to your phone',
+            'Electric Shuttle\nLobby pickup · 3:30 PM',
+          highlight:
+            'Weekend itinerary sent to your phone',
           prompt: undefined,
         };
       }

@@ -41,6 +41,21 @@ function ExperienceCard({ card }: Props) {
         >
           {card.message}
         </p>
+
+        {card.highlight && (
+          <p
+            style={{
+              margin: '18px 0 0',
+              fontSize: '25px',
+              lineHeight: 1.35,
+              fontWeight: 700,
+              color: '#38bdf8',
+              whiteSpace: 'pre-line',
+            }}
+          >
+            {card.highlight}
+          </p>
+        )}
       </div>
 
       {card.prompt && (

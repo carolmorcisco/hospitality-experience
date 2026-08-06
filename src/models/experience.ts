@@ -3,4 +3,5 @@ export type ExperienceCardData = {
   title: string;
   message: string;
   prompt?: string;
+  highlight?: string;
 };
