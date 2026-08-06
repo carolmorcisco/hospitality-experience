@@ -1,7 +1,9 @@
 export type ExperienceEvent = {
-    event: string;
-    status?: string;
-  };
+  event: string;
+  experience?: string;
+  status?: string;
+
+};
   
   const GATEWAY_URL =
     'wss://deskpro-event-gateway.onrender.com';

@@ -1,4 +1,5 @@
 export const EVENTS = {
+    EXPERIENCE_SELECTED: 'experience.selected',
     PROFILE_AUTHENTICATED: 'profile.authenticated',
   
     DINING_CONFIRMED: 'dining.confirmed',
