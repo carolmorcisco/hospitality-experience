@@ -3,22 +3,151 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta charset="UTF-8" />
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <link rel="preload" href="/webex-by-CIsco-right-wordmark-white.png" as="image" />
-    <link rel="preload" href="/icons/banking_black.svg" as="image" />
-    <link rel="preload" href="/icons/healthcare.svg" as="image" />
-    <link rel="preload" href="/icons/travel.svg" as="image" />
-    <link rel="preload" href="/icons/customer-experience-cx.svg" as="image" />
-    
-    <title>Hospitality Experience</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
+    <!-- Preload branding -->
+    <link
+      rel="preload"
+      href="/webex-by-CIsco-right-wordmark-white.png"
+      as="image"
+    />
+
+    <!-- Preload experience icons -->
+    <link
+      rel="preload"
+      href="/icons/banking_black.svg"
+      as="image"
+    />
+
+    <link
+      rel="preload"
+      href="/icons/healthcare.svg"
+      as="image"
+    />
+
+    <link
+      rel="preload"
+      href="/icons/travel.svg"
+      as="image"
+    />
+
+    <link
+      rel="preload"
+      href="/icons/customer-experience-cx.svg"
+      as="image"
+    />
+
+    <title>Webex AI Experiences</title>
+
+    <style>
+      html,
+      body,
+      #root {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      body {
+        min-height: 100vh;
+        font-family:
+          Inter,
+          Arial,
+          Helvetica,
+          sans-serif;
+
+        background:
+          linear-gradient(
+            145deg,
+            #17112f 0%,
+            #292263 44%,
+            #143c63 72%,
+            #07616c 100%
+          );
+
+        overflow: hidden;
+      }
+
+      .startup-screen {
+        width: 100%;
+        height: 100vh;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        color: white;
+      }
+
+      .startup-logo {
+        width: 190px;
+        max-height: 85px;
+        object-fit: contain;
+        margin-bottom: 28px;
+      }
+
+      .startup-title {
+        font-size: 42px;
+        font-weight: 600;
+        margin-bottom: 14px;
+      }
+
+      .startup-subtitle {
+        font-size: 21px;
+        color: #73f2d2;
+      }
+
+      .spinner {
+        margin-top: 36px;
+
+        width: 34px;
+        height: 34px;
+
+        border-radius: 50%;
+
+        border: 3px solid rgba(255, 255, 255, 0.18);
+        border-top-color: #73f2d2;
+
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
   </head>
+
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <div id="root">
+      <div class="startup-screen">
+        <img
+          class="startup-logo"
+          src="/webex-by-CIsco-right-wordmark-white.png"
+          alt="Webex by Cisco"
+        />
+
+        <div class="startup-title">
+          Webex AI Agent
+        </div>
+
+        <div class="startup-subtitle">
+          Preparing your AI experience...
+        </div>
+
+        <div class="spinner"></div>
+      </div>
+    </div>
+
+    <script
+      type="module"
+      src="/src/main.tsx"
+    ></script>
   </body>
 </html>
