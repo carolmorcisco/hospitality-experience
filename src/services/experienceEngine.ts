@@ -12,7 +12,7 @@ export function applyExperienceEvent(
         return {
           ...card,
           message:
-            'Welcome back, Alex Morgan\nReturning guest\nVegetarian\nOutdoor activities',
+            'Welcome back, Alex Morgan\nReturning guest\nVegetarian\nOutdoor activities\n\nPersonal welcome phrase:\nWebexOne 2026',
           highlight: 'Guest profile loaded',
           prompt: undefined,
         };
