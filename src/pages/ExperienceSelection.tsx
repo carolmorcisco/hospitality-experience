@@ -1,28 +1,33 @@
+import bankingIcon from '../assets/icons/banking_black.svg?raw';
+import healthcareIcon from '../assets/icons/healthcare.svg?raw';
+import travelIcon from '../assets/icons/travel.svg?raw';
+import hospitalityIcon from '../assets/icons/customer-experience-cx.svg?raw';
+
 const experiences = [
   {
     id: 'finance',
-    icon: '/icons/banking_black.svg',
+    icon: bankingIcon,
     title: 'Finance',
     description: 'Personalized financial services',
     accent: '#8b5cf6',
   },
   {
     id: 'healthcare',
-    icon: '/icons/healthcare.svg',
+    icon: healthcareIcon,
     title: 'Healthcare',
     description: 'Connected patient experiences',
     accent: '#22d3ee',
   },
   {
     id: 'airline',
-    icon: '/icons/travel.svg',
+    icon: travelIcon,
     title: 'Airline',
     description: 'Intelligent travel assistance',
     accent: '#60a5fa',
   },
   {
     id: 'hospitality',
-    icon: '/icons/customer-experience-cx.svg',
+    icon: hospitalityIcon,
     title: 'Hospitality',
     description: 'Personalized guest journeys',
     accent: '#2dd4bf',
@@ -200,15 +205,23 @@ function ExperienceSelection() {
                   borderRadius: '22px',
                   border: `1px solid ${experience.accent}66`,
                   background: `${experience.accent}24`,
+                  overflow: 'hidden',
                 }}
               >
-                <img
-                  src={experience.icon}
-                  alt=""
+                <div
+                  aria-hidden="true"
                   style={{
-                    width: '52px',
-                    height: '52px',
-                    objectFit: 'contain',
+                    width: '48px',
+                    height: '48px',
+                    display: 'grid',
+                    placeItems: 'center',
+                    overflow: 'hidden',
+                  }}
+                  dangerouslySetInnerHTML={{
+                    __html: experience.icon.replace(
+                      '<svg',
+                      '<svg style="width:48px;height:48px;display:block;max-width:48px;max-height:48px;"'
+                    ),
                   }}
                 />
               </div>
