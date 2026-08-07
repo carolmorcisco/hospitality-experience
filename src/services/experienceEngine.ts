@@ -1,181 +1,159 @@
 import type { ExperienceCardData } from '../models/experience';
 import type { ExperienceEvent } from './websocket';
-import { EVENTS } from './events';
 
 export function applyExperienceEvent(
   cards: ExperienceCardData[],
   event: ExperienceEvent
 ): ExperienceCardData[] {
-  if (event.event === EVENTS.PROFILE_AUTHENTICATED) {
-    return cards.map((card) => {
-      if (card.id === 'profile') {
-        return {
-          ...card,
-          message:
-            'Welcome back, Alex Morgan\nReturning guest\nVegetarian\nOutdoor activities\n\nPersonal welcome phrase:\nWebexOne 2026',
-          highlight: 'Guest profile loaded',
-          prompt: undefined,
-        };
-      }
+  switch (event.event) {
+    case 'profile.authenticated':
+      return cards.map((card) => {
+        if (card.id === 'profile') {
+          return {
+            ...card,
+            message:
+              'Returning Guest\nVegetarian\nOutdoor Activities\nOcean View\n\nPersonal welcome phrase:\nWebexOne 2026',
+            prompt: undefined,
+            status: 'confirmed',
+          };
+        }
 
-      if (card.id === 'dining') {
-        return {
-          ...card,
-          message:
-            'Discover the best restaurants at Aurora Resort.',
-          highlight: undefined,
-          prompt: 'Book dinner for Saturday night.',
-        };
-      }
+        if (card.id === 'dining') {
+          return {
+            ...card,
+            message:
+              'Based on your preferences, Ocean Terrace is a great match.',
+            prompt: 'Book dinner for Saturday at 7:30 PM.',
+            status: 'active',
+          };
+        }
 
-      return card;
-    });
-  }
+        return card;
+      });
 
-  if (event.event === EVENTS.DINING_CONFIRMED) {
-    return cards.map((card) => {
-      if (card.id === 'dining') {
-        return {
-          ...card,
-          message:
-            'Ocean Terrace\nSaturday · 7:30 PM',
-          highlight: 'Reservation confirmed',
-          prompt: undefined,
-        };
-      }
+    case 'dining.confirmed':
+      return cards.map((card) => {
+        if (card.id === 'dining') {
+          return {
+            ...card,
+            message:
+              'Reservation confirmed\nOcean Terrace\nSaturday · 7:30 PM\nVegetarian preference noted',
+            prompt: undefined,
+            status: 'confirmed',
+          };
+        }
 
-      if (card.id === 'activities') {
-        return {
-          ...card,
-          message:
-            "Let's find something memorable for your weekend.",
-          highlight: undefined,
-          prompt:
-            'Find an activity for Saturday afternoon.',
-        };
-      }
+        if (card.id === 'activities') {
+          return {
+            ...card,
+            message:
+              'Ready to find an activity based on your outdoor interests.',
+            prompt: 'Find an activity for Saturday afternoon.',
+            status: 'active',
+          };
+        }
 
-      return card;
-    });
-  }
+        return card;
+      });
 
-  if (event.event === EVENTS.ACTIVITIES_RECOMMENDED) {
-    return cards.map((card) => {
-      if (card.id === 'activities') {
-        return {
-          ...card,
-          message:
-            'Sunset Kayaking\nSaturday · 4:00 PM',
-          highlight: 'Preparing your reservation...',
-          prompt: undefined,
-        };
-      }
+    case 'activities.recommended':
+      return cards.map((card) => {
+        if (card.id === 'activities') {
+          return {
+            ...card,
+            message:
+              'Sunset Kayaking\nSaturday · 4:00 PM',
+            prompt: undefined,
+            status: 'active',
+          };
+        }
 
-      return card;
-    });
-  }
+        return card;
+      });
 
-  if (event.event === EVENTS.ACTIVITIES_WAIVER_SENT) {
-    return cards.map((card) => {
-      if (card.id === 'activities') {
-        return {
-          ...card,
-          message:
-            'Sunset Kayaking\nPlease review the waiver on your phone and tell me when you are ready.',
-          highlight: 'Waiver sent to your phone',
-          prompt: undefined,
-        };
-      }
+    case 'activities.waiver.sent':
+      return cards.map((card) => {
+        if (card.id === 'activities') {
+          return {
+            ...card,
+            message:
+              'Sunset Kayaking\nSaturday · 4:00 PM\n\nWaiver sent to your phone.\nPlease review it and tell me when you’re ready.',
+            prompt: "I've read it.",
+            status: 'active',
+          };
+        }
 
-      return card;
-    });
-  }
+        return card;
+      });
 
-  if (event.event === EVENTS.ACTIVITIES_WAIVER_ACCEPTED) {
-    return cards.map((card) => {
-      if (card.id === 'activities') {
-        return {
-          ...card,
-          message:
-            'Sunset Kayaking\nSaturday · 4:00 PM',
-          highlight:
-            'Waiver accepted\nReservation confirmed',
-          prompt: undefined,
-        };
-      }
+    case 'activities.waiver.accepted':
+      return cards.map((card) => {
+        if (card.id === 'activities') {
+          return {
+            ...card,
+            message:
+              '✓ Waiver accepted\nReservation confirmed',
+            prompt: undefined,
+            status: 'confirmed',
+          };
+        }
 
-      return card;
-    });
-  }
+        return card;
+      });
 
-  if (event.event === EVENTS.ACTIVITIES_QR_GENERATED) {
-    return cards.map((card) => {
-      if (card.id === 'activities') {
-        return {
-          ...card,
-          message:
-            'Sunset Kayaking\nSaturday · 4:00 PM',
-          highlight:
-            'Reservation confirmed\nQR activity check-in pass generated',
-          prompt: undefined,
-        };
-      }
+    case 'activities.qr.generated':
+      return cards.map((card) => {
+        if (card.id === 'activities') {
+          return {
+            ...card,
+            message:
+              '✓ Waiver accepted\nReservation confirmed\nQR activity check-in generated',
+            prompt: undefined,
+            status: 'confirmed',
+          };
+        }
 
-      return card;
-    });
-  }
+        return card;
+      });
 
-  if (event.event === EVENTS.TRANSPORTATION_AVAILABLE) {
-    return cards.map((card) => {
-      if (card.id === 'transportation') {
-        return {
-          ...card,
-          message:
-            "Your activity is ready. Let's arrange your transportation.",
-          highlight: undefined,
-          prompt: 'Arrange transportation to my activity.',
-        };
-      }
+    case 'transportation.available':
+      return cards.map((card) => {
+        if (card.id === 'transportation') {
+          return {
+            ...card,
+            message:
+              'Transportation is available for your activity.',
+            prompt: 'Arrange transportation.',
+            status: 'active',
+          };
+        }
 
-      return card;
-    });
-  }
+        return card;
+      });
 
-  if (event.event === EVENTS.TRANSPORTATION_CONFIRMED) {
-    return cards.map((card) => {
-      if (card.id === 'transportation') {
-        return {
-          ...card,
-          message:
-            'Electric Shuttle\nLobby pickup · 3:30 PM',
-          highlight: 'Transportation confirmed',
-          prompt: undefined,
-        };
-      }
+    case 'transportation.confirmed':
+      return cards.map((card) => {
+        if (card.id === 'transportation') {
+          return {
+            ...card,
+            message:
+              'Transportation confirmed\nElectric Shuttle\nLobby pickup · 3:30 PM',
+            prompt: undefined,
+            status: 'confirmed',
+          };
+        }
 
-      return card;
-    });
-  }
+        return card;
+      });
 
-  if (event.event === EVENTS.EXPERIENCE_COMPLETED) {
-    return cards.map((card) => {
-      if (card.id === 'transportation') {
-        return {
-          ...card,
-          message:
-            'Electric Shuttle\nLobby pickup · 3:30 PM',
-          highlight:
-            'Weekend itinerary sent to your phone',
-          prompt: undefined,
-        };
-      }
-
-      return {
+    case 'experience.completed':
+      return cards.map((card) => ({
         ...card,
         prompt: undefined,
-      };
-    });
-  }
+        status: 'confirmed',
+      }));
 
-  return cards;
+    default:
+      return cards;
+  }
 }
