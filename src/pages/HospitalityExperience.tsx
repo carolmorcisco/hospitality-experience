@@ -10,13 +10,14 @@ const initialCards: ExperienceCardData[] = [
     id: 'profile',
     title: '👤 Profile',
     message: "Let's personalize your stay.",
-    prompt: 'My name is Alex Morgan.',
+    prompt: 'My name is Alex Morgan.\n\nPersonal welcome phrase:\nWebex One 2026',
   },
   {
     id: 'dining',
     title: '🍽 Dining',
     message:
       "We'll recommend restaurants after we get to know you.",
+    prompt: 'Book dinner for Saturday at 7:30 PM.',
   },
   {
     id: 'activities',
