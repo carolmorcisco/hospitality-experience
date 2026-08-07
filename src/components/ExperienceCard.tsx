@@ -84,6 +84,7 @@ function ExperienceCard({ card }: Props) {
               fontSize: '26px',
               fontWeight: 700,
               lineHeight: 1.35,
+              whiteSpace: 'pre-line',
             }}
           >
             “{card.prompt}”
