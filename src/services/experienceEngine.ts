@@ -14,7 +14,6 @@ export function applyExperienceEvent(
             message:
               'Returning Guest\nVegetarian\nOutdoor Activities\nOcean View\n\nPersonal welcome phrase:\nWebexOne 2026',
             prompt: undefined,
-            status: 'confirmed',
           };
         }
 
@@ -24,7 +23,6 @@ export function applyExperienceEvent(
             message:
               'Based on your preferences, Ocean Terrace is a great match.',
             prompt: 'Book dinner for Saturday at 7:30 PM.',
-            status: 'active',
           };
         }
 
@@ -39,7 +37,6 @@ export function applyExperienceEvent(
             message:
               'Reservation confirmed\nOcean Terrace\nSaturday · 7:30 PM\nVegetarian preference noted',
             prompt: undefined,
-            status: 'confirmed',
           };
         }
 
@@ -49,7 +46,6 @@ export function applyExperienceEvent(
             message:
               'Ready to find an activity based on your outdoor interests.',
             prompt: 'Find an activity for Saturday afternoon.',
-            status: 'active',
           };
         }
 
@@ -64,7 +60,6 @@ export function applyExperienceEvent(
             message:
               'Sunset Kayaking\nSaturday · 4:00 PM',
             prompt: undefined,
-            status: 'active',
           };
         }
 
@@ -79,7 +74,6 @@ export function applyExperienceEvent(
             message:
               'Sunset Kayaking\nSaturday · 4:00 PM\n\nWaiver sent to your phone.\nPlease review it and tell me when you’re ready.',
             prompt: "I've read it.",
-            status: 'active',
           };
         }
 
@@ -94,7 +88,6 @@ export function applyExperienceEvent(
             message:
               '✓ Waiver accepted\nReservation confirmed',
             prompt: undefined,
-            status: 'confirmed',
           };
         }
 
@@ -109,7 +102,6 @@ export function applyExperienceEvent(
             message:
               '✓ Waiver accepted\nReservation confirmed\nQR activity check-in generated',
             prompt: undefined,
-            status: 'confirmed',
           };
         }
 
@@ -124,7 +116,6 @@ export function applyExperienceEvent(
             message:
               'Transportation is available for your activity.',
             prompt: 'Arrange transportation.',
-            status: 'active',
           };
         }
 
@@ -139,7 +130,6 @@ export function applyExperienceEvent(
             message:
               'Transportation confirmed\nElectric Shuttle\nLobby pickup · 3:30 PM',
             prompt: undefined,
-            status: 'confirmed',
           };
         }
 
@@ -150,7 +140,6 @@ export function applyExperienceEvent(
       return cards.map((card) => ({
         ...card,
         prompt: undefined,
-        status: 'confirmed',
       }));
 
     default:
